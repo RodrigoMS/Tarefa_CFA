@@ -28,25 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Comedia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Comedia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
             this.LISTA_FILMES = new System.Windows.Forms.ListView();
             this.COLUNA_NOME = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COLUNA_GÊNERO = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COLUNA_DATA = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COLUNA_LOCAL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.NOME = new System.Windows.Forms.TextBox();
-            this.GENERO = new System.Windows.Forms.ComboBox();
-            this.DATA = new System.Windows.Forms.TextBox();
-            this.LOCAL = new System.Windows.Forms.TextBox();
+            this.TNOME = new System.Windows.Forms.TextBox();
+            this.TGENERO = new System.Windows.Forms.ComboBox();
+            this.TLOCAL = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.CANCELAR = new System.Windows.Forms.Button();
             this.PERQUISAR = new System.Windows.Forms.Button();
             this.ALTERAR = new System.Windows.Forms.Button();
+            this.TDATA = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // LISTA_FILMES
@@ -63,34 +63,34 @@
             this.COLUNA_GÊNERO,
             this.COLUNA_DATA,
             this.COLUNA_LOCAL});
-            listViewGroup1.Header = "Ação";
-            listViewGroup1.Name = "Ação";
-            listViewGroup2.Header = "Aventura";
-            listViewGroup2.Name = "Aventura";
-            listViewGroup3.Header = "Comedia";
-            listViewGroup3.Name = "Comedia";
-            listViewGroup4.Header = "Terror";
-            listViewGroup4.Name = "Terror";
-            listViewGroup5.Header = "Suspense";
-            listViewGroup5.Name = "Suspense";
-            listViewGroup6.Header = "Documentário";
-            listViewGroup6.Name = "Documentário";
-            listViewGroup7.Header = "Infantil";
-            listViewGroup7.Name = "Infantil";
-            listViewGroup8.Header = "Romance";
-            listViewGroup8.Name = "Romance";
-            listViewGroup9.Header = "Ficção científica";
-            listViewGroup9.Name = "Ficção científica";
+            listViewGroup10.Header = "Ação";
+            listViewGroup10.Name = "Ação";
+            listViewGroup11.Header = "Aventura";
+            listViewGroup11.Name = "Aventura";
+            listViewGroup12.Header = "Comedia";
+            listViewGroup12.Name = "Comedia";
+            listViewGroup13.Header = "Terror";
+            listViewGroup13.Name = "Terror";
+            listViewGroup14.Header = "Suspense";
+            listViewGroup14.Name = "Suspense";
+            listViewGroup15.Header = "Documentário";
+            listViewGroup15.Name = "Documentário";
+            listViewGroup16.Header = "Infantil";
+            listViewGroup16.Name = "Infantil";
+            listViewGroup17.Header = "Romance";
+            listViewGroup17.Name = "Romance";
+            listViewGroup18.Header = "Ficção científica";
+            listViewGroup18.Name = "Ficção científica";
             this.LISTA_FILMES.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9});
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18});
             this.LISTA_FILMES.Location = new System.Drawing.Point(12, 108);
             this.LISTA_FILMES.Name = "LISTA_FILMES";
             this.LISTA_FILMES.Size = new System.Drawing.Size(760, 412);
@@ -128,24 +128,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome:";
             // 
-            // NOME
+            // TNOME
             // 
-            this.NOME.AutoCompleteCustomSource.AddRange(new string[] {
+            this.TNOME.AutoCompleteCustomSource.AddRange(new string[] {
             "Transformes - A vingança dos derrotados",
             "Carros 1",
             "Tron - O legado",
             "Besouro verde"});
-            this.NOME.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.NOME.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.NOME.Location = new System.Drawing.Point(53, 49);
-            this.NOME.Name = "NOME";
-            this.NOME.Size = new System.Drawing.Size(437, 20);
-            this.NOME.TabIndex = 2;
+            this.TNOME.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TNOME.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TNOME.Location = new System.Drawing.Point(53, 49);
+            this.TNOME.Name = "TNOME";
+            this.TNOME.Size = new System.Drawing.Size(437, 20);
+            this.TNOME.TabIndex = 2;
             // 
-            // GENERO
+            // TGENERO
             // 
-            this.GENERO.FormattingEnabled = true;
-            this.GENERO.Items.AddRange(new object[] {
+            this.TGENERO.FormattingEnabled = true;
+            this.TGENERO.Items.AddRange(new object[] {
             "Ação",
             "Aventura",
             "Comédia",
@@ -155,24 +155,17 @@
             "Infantil",
             "Romance",
             "Ficção científica"});
-            this.GENERO.Location = new System.Drawing.Point(547, 52);
-            this.GENERO.Name = "GENERO";
-            this.GENERO.Size = new System.Drawing.Size(156, 21);
-            this.GENERO.TabIndex = 3;
+            this.TGENERO.Location = new System.Drawing.Point(547, 52);
+            this.TGENERO.Name = "TGENERO";
+            this.TGENERO.Size = new System.Drawing.Size(156, 21);
+            this.TGENERO.TabIndex = 3;
             // 
-            // DATA
+            // TLOCAL
             // 
-            this.DATA.Location = new System.Drawing.Point(53, 76);
-            this.DATA.Name = "DATA";
-            this.DATA.Size = new System.Drawing.Size(103, 20);
-            this.DATA.TabIndex = 4;
-            // 
-            // LOCAL
-            // 
-            this.LOCAL.Location = new System.Drawing.Point(203, 76);
-            this.LOCAL.Name = "LOCAL";
-            this.LOCAL.Size = new System.Drawing.Size(286, 20);
-            this.LOCAL.TabIndex = 5;
+            this.TLOCAL.Location = new System.Drawing.Point(203, 76);
+            this.TLOCAL.Name = "TLOCAL";
+            this.TLOCAL.Size = new System.Drawing.Size(286, 20);
+            this.TLOCAL.TabIndex = 5;
             // 
             // label2
             // 
@@ -239,11 +232,21 @@
             this.ALTERAR.Text = "Alterar";
             this.ALTERAR.UseVisualStyleBackColor = true;
             // 
+            // TDATA
+            // 
+            this.TDATA.Location = new System.Drawing.Point(51, 80);
+            this.TDATA.Mask = "00/00/0000";
+            this.TDATA.Name = "TDATA";
+            this.TDATA.Size = new System.Drawing.Size(100, 20);
+            this.TDATA.TabIndex = 15;
+            this.TDATA.ValidatingType = typeof(System.DateTime);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.TDATA);
             this.Controls.Add(this.ALTERAR);
             this.Controls.Add(this.PERQUISAR);
             this.Controls.Add(this.CANCELAR);
@@ -251,10 +254,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.LOCAL);
-            this.Controls.Add(this.DATA);
-            this.Controls.Add(this.GENERO);
-            this.Controls.Add(this.NOME);
+            this.Controls.Add(this.TLOCAL);
+            this.Controls.Add(this.TGENERO);
+            this.Controls.Add(this.TNOME);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LISTA_FILMES);
             this.Name = "Form1";
@@ -269,10 +271,9 @@
 
         private System.Windows.Forms.ListView LISTA_FILMES;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox NOME;
-        private System.Windows.Forms.ComboBox GENERO;
-        private System.Windows.Forms.TextBox DATA;
-        private System.Windows.Forms.TextBox LOCAL;
+        private System.Windows.Forms.TextBox TNOME;
+        private System.Windows.Forms.ComboBox TGENERO;
+        private System.Windows.Forms.TextBox TLOCAL;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -284,6 +285,7 @@
         private System.Windows.Forms.ColumnHeader COLUNA_DATA;
         private System.Windows.Forms.ColumnHeader COLUNA_LOCAL;
         private System.Windows.Forms.Button ALTERAR;
+        private System.Windows.Forms.MaskedTextBox TDATA;
     }
 }
 

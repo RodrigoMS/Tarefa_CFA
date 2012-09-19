@@ -16,14 +16,6 @@ namespace Tarefa_CFA
             InitializeComponent();
         }
 
-        //class filme : IComparable
-        //{
-        //    public string nome;
-        //    public string genero;
-        //    public int data;
-        //    public string local;
-        //}
-
         private void Form1_Load(object sender, EventArgs e)
         {
             LISTA_FILMES.Groups.Add("Grupo de filmes", "Lista de filmes");
@@ -46,19 +38,31 @@ namespace Tarefa_CFA
         private void ADICIONAR_Click(object sender, EventArgs e)
         {
             //Adicona um novo filme na lista
+            Filme novoFilme = new Filme();
+            novoFilme.nome = TNOME.Text;
+            novoFilme.genero = TGENERO.Text;
+            novoFilme.data = TDATA.Text;
+            novoFilme.local = TLOCAL.Text;
 
             ListViewItem FILME = new ListViewItem();
-            FILME.Text = NOME.Text;
-            FILME.SubItems.Add(GENERO.Text);
-            FILME.SubItems.Add(DATA.Text);
-            FILME.SubItems.Add(LOCAL.Text);
+            FILME.Text = novoFilme.nome;
+            FILME.SubItems.Add(novoFilme.genero);
+            FILME.SubItems.Add(novoFilme.data);
+            FILME.SubItems.Add(novoFilme.local);
 
-            FILME.Group = LISTA_FILMES.Groups[GENERO.Text];
+            novoFilme.L.Add(novoFilme.ToString());
+
+            //L.Add(TGENERO.Text);
+            //L.Add(TDATA.Text);
+            //L.Add(TLOCAL.Text);
+            
+
+            FILME.Group = LISTA_FILMES.Groups[TGENERO.Text];
 
             LISTA_FILMES.Items.Add(FILME);
 
-            Dictionary<string, int> d = new Dictionary<string, int>();
-            
+            Dictionary<string,List<string>> d = new Dictionary<string,List<string>>();
+            d.Add(TGENERO.Text,novoFilme.L);
 
             LIMPAR();
         }
@@ -70,20 +74,25 @@ namespace Tarefa_CFA
 
         public void LIMPAR()
         {
-            NOME.Clear();
-            GENERO.Text = "";
-            DATA.Clear();
-            LOCAL.Clear();
-            NOME.Focus();
+            TNOME.Clear();
+            TGENERO.Text = "";
+            TDATA.Clear();
+            TLOCAL.Clear();
+            TNOME.Focus();
         }
 
         private void LISTA_FILMES_DoubleClick(object sender, EventArgs e)
         {
-            //ListViewItem FILME_SELECT = new ListViewItem();
-            //NOME.Text = FILME_SELECT.Text;
-            //GENERO.Text = FILME_SELECT.SubItems[1].Text;
-            //DATA.Text = FILME_SELECT.SubItems[2].Text;
-            //LOCAL.Text = FILME_SELECT.SubItems[3].Text;
+           //string selecionado;
+           //foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
+           //{
+           //    selecionado = LISTA_FILMES.SubItem[item].Text;
+           //}
+
+           // TNOME.Text = FILME_SELECT.Text;
+           // TGENERO.Text = FILME_SELECT.SubItems[1].Text;
+           // TDATA.Text = FILME_SELECT.SubItems[2].Text;
+           // TLOCAL.Text = FILME_SELECT.SubItems[3].Text;
         }
     }
 }
