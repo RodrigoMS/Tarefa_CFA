@@ -16,6 +16,8 @@ namespace Tarefa_CFA
             InitializeComponent();
         }
 
+        //public Filme novoFilme = new Filme();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             LISTA_FILMES.Groups.Add("Grupo de filmes", "Lista de filmes");
@@ -37,36 +39,43 @@ namespace Tarefa_CFA
 
         private void ADICIONAR_Click(object sender, EventArgs e)
         {
-            //Adicona um novo filme na lista
+            //Cria um objeto com referencia a class Filme
             Filme novoFilme = new Filme();
-            novoFilme.nome = TNOME.Text;
-            novoFilme.genero = TGENERO.Text;
-            novoFilme.data = TDATA.Text;
-            novoFilme.local = TLOCAL.Text;
+            if (TGENERO.Text == String.Empty)
+            {
+                MessageBox.Show("O campo Genero esta em branco.\n Selecione um tipo para cadastrar.", "Campo não preenchido");
+            }
+            else
+            {
+                //Atribui os valores digitados ao objeto da classe filme
+                novoFilme.nome = TNOME.Text;
+                novoFilme.genero = TGENERO.Text;
+                novoFilme.data = TDATA.Text;
+                novoFilme.local = TLOCAL.Text;
 
-            ListViewItem FILME = new ListViewItem();
-            FILME.Text = novoFilme.nome;
-            FILME.SubItems.Add(novoFilme.genero);
-            FILME.SubItems.Add(novoFilme.data);
-            FILME.SubItems.Add(novoFilme.local);
+                //Insere o objeto no ListView 
+                ListViewItem FILME = new ListViewItem();
+                FILME.Text = novoFilme.nome;
+                FILME.SubItems.Add(novoFilme.genero);
+                FILME.SubItems.Add(novoFilme.data);
+                FILME.SubItems.Add(novoFilme.local);
 
-            novoFilme.L.Add(novoFilme.ToString());
+                //Insere o objeto novoFilme na ListaFilme da class Filme
+                novoFilme.ListaFilme.Add(novoFilme.ToString());
 
-            //L.Add(TGENERO.Text);
-            //L.Add(TDATA.Text);
-            //L.Add(TLOCAL.Text);
-            
+                //Define o grupo que pertencerá ao listview LISTA_FILME
+                FILME.Group = LISTA_FILMES.Groups[TGENERO.Text];
 
-            FILME.Group = LISTA_FILMES.Groups[TGENERO.Text];
+                // Insere o objeto FILME no ListView LISTA_FILME
+                LISTA_FILMES.Items.Add(FILME);
 
-            LISTA_FILMES.Items.Add(FILME);
 
-            Dictionary<string,List<string>> d = new Dictionary<string,List<string>>();
-            d.Add(TGENERO.Text,novoFilme.L);
-
+                novoFilme.Dicionario.Add(TGENERO.Text, novoFilme.ListaFilme);
+            }
+       
             LIMPAR();
-        }
 
+        }
         private void CANCELAR_Click(object sender, EventArgs e)
         {
             LIMPAR();
@@ -83,16 +92,22 @@ namespace Tarefa_CFA
 
         private void LISTA_FILMES_DoubleClick(object sender, EventArgs e)
         {
-           //string selecionado;
-           //foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
-           //{
-           //    selecionado = LISTA_FILMES.SubItem[item].Text;
-           //}
+            foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
+            {
+                Filme Filme = new Filme();
+                Filme.Selecionado = item.Index;
+                TNOME.Text = item.Text;
+                TGENERO.Text = item.SubItems[1].Text;
+                TDATA.Text = item.SubItems[2].Text;
+                TLOCAL.Text = item.SubItems[3].Text;
 
-           // TNOME.Text = FILME_SELECT.Text;
-           // TGENERO.Text = FILME_SELECT.SubItems[1].Text;
-           // TDATA.Text = FILME_SELECT.SubItems[2].Text;
-           // TLOCAL.Text = FILME_SELECT.SubItems[3].Text;
+
+            }
+        }
+
+        private void ALTERAR_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

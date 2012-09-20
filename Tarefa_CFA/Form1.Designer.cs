@@ -144,6 +144,7 @@
             // 
             // TGENERO
             // 
+            this.TGENERO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TGENERO.FormattingEnabled = true;
             this.TGENERO.Items.AddRange(new object[] {
             "Ação",
@@ -231,6 +232,7 @@
             this.ALTERAR.TabIndex = 14;
             this.ALTERAR.Text = "Alterar";
             this.ALTERAR.UseVisualStyleBackColor = true;
+            this.ALTERAR.Click += new System.EventHandler(this.ALTERAR_Click);
             // 
             // TDATA
             // 

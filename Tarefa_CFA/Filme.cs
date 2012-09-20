@@ -11,8 +11,9 @@ namespace Tarefa_CFA
         public string genero;
         public string data;
         public string local;
+        public int Selecionado;
 
-        public Dictionary<string, List<string>> D = new Dictionary<string, List<string>>();
-        public List<string> L = new List<string>();
+        public Dictionary<string, List<string>> Dicionario = new Dictionary<string, List<string>>();
+        public List<string> ListaFilme = new List<string>();
     }
 }
