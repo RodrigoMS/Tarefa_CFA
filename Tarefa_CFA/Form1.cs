@@ -16,7 +16,7 @@ namespace Tarefa_CFA
             InitializeComponent();
         }
 
-        //public Filme novoFilme = new Filme();
+        public List<List<string>> ListaFilmes = new List<List<string>>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace Tarefa_CFA
             //        });
 
             //// Criar e inicializar a caixa de texto.
-            
+
             //    NOME.AutoCompleteCustomSource = COMPLETE;
             //    NOME.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //    NOME.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -50,18 +50,31 @@ namespace Tarefa_CFA
                 //Atribui os valores digitados ao objeto da classe filme
                 novoFilme.nome = TNOME.Text;
                 novoFilme.genero = TGENERO.Text;
-                novoFilme.data = TDATA.Text;
+                novoFilme.data = TDATA.Value;
                 novoFilme.local = TLOCAL.Text;
 
-                //Insere o objeto no ListView 
-                ListViewItem FILME = new ListViewItem();
-                FILME.Text = novoFilme.nome;
-                FILME.SubItems.Add(novoFilme.genero);
-                FILME.SubItems.Add(novoFilme.data);
-                FILME.SubItems.Add(novoFilme.local);
+                //Criará uma lista com todas as informações com referecia ao filme
+                List<string> InfFilme = new List<string>();
+                InfFilme.Add(novoFilme.nome);
+                InfFilme.Add(novoFilme.genero);
+                InfFilme.Add(novoFilme.data.ToString());
+                InfFilme.Add(novoFilme.local);
 
-                //Insere o objeto novoFilme na ListaFilme da class Filme
-                novoFilme.ListaFilme.Add(novoFilme.ToString());
+                ListaFilmes.Add(InfFilme);
+
+                //Mostra o conteúdo da lista de informações para o listView
+                ListViewItem FILME = new ListViewItem();
+                sbyte I = 0;
+                foreach (string n in InfFilme)
+                {
+                    if (I == 0)
+                    {
+                        I++;
+                        FILME.Text = n;
+                    }
+                    else
+                        FILME.SubItems.Add(n);
+                }
 
                 //Define o grupo que pertencerá ao listview LISTA_FILME
                 FILME.Group = LISTA_FILMES.Groups[TGENERO.Text];
@@ -69,12 +82,12 @@ namespace Tarefa_CFA
                 // Insere o objeto FILME no ListView LISTA_FILME
                 LISTA_FILMES.Items.Add(FILME);
 
+                //Insere o ListaFilme no Dicionário
+                novoFilme.Dicionario.Add(TGENERO.Text, ListaFilmes);
 
-                novoFilme.Dicionario.Add(TGENERO.Text, novoFilme.ListaFilme);
+                // Método Limpar
+                LIMPAR();
             }
-       
-            LIMPAR();
-
         }
         private void CANCELAR_Click(object sender, EventArgs e)
         {
@@ -83,9 +96,9 @@ namespace Tarefa_CFA
 
         public void LIMPAR()
         {
+            //Limpa todos os TextBox e posiciona o cursor no TexBox nome
             TNOME.Clear();
             TGENERO.Text = "";
-            TDATA.Clear();
             TLOCAL.Clear();
             TNOME.Focus();
         }
@@ -100,14 +113,34 @@ namespace Tarefa_CFA
                 TGENERO.Text = item.SubItems[1].Text;
                 TDATA.Text = item.SubItems[2].Text;
                 TLOCAL.Text = item.SubItems[3].Text;
-
-
             }
         }
 
         private void ALTERAR_Click(object sender, EventArgs e)
         {
             
+            Filme Filme = new Filme();
+            LISTA_FILMES.Items[Filme.Selecionado].Text = TNOME.Text;
+        }
+
+        private void PERQUISAR_Click(object sender, EventArgs e)
+        {
+            //Apaga os items do ListView 
+            LISTA_FILMES.Items.Clear();
+
+            //Retorna os filmes existentes
+            Filme todos = new Filme();
+            foreach (List<string> n in ListaFilmes)
+            {
+                ListViewItem FILMEP = new ListViewItem();
+                FILMEP.Text = n[0];
+                FILMEP.SubItems.Add(n[1]);
+                FILMEP.SubItems.Add(n[2]);
+                FILMEP.SubItems.Add(n[3]);
+
+                FILMEP.Group = LISTA_FILMES.Groups[FILMEP.SubItems[1].Text];
+                LISTA_FILMES.Items.Add(FILMEP);
+            }
         }
     }
 }
