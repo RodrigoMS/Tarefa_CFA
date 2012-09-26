@@ -37,6 +37,7 @@
             System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Pesquisa", System.Windows.Forms.HorizontalAlignment.Left);
             this.LISTA_FILMES = new System.Windows.Forms.ListView();
             this.COLUNA_NOME = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COLUNA_GÊNERO = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,9 +52,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ADICIONAR = new System.Windows.Forms.Button();
             this.CANCELAR = new System.Windows.Forms.Button();
-            this.PERQUISAR = new System.Windows.Forms.Button();
+            this.PERQUISA = new System.Windows.Forms.Button();
             this.ALTERAR = new System.Windows.Forms.Button();
             this.TDATA = new System.Windows.Forms.DateTimePicker();
+            this.PESQUISAR = new System.Windows.Forms.Button();
+            this.FECHAR_PESQUISA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LISTA_FILMES
@@ -81,6 +84,8 @@
             listViewGroup8.Name = "Romance";
             listViewGroup9.Header = "Ficção científica";
             listViewGroup9.Name = "Ficção científica";
+            listViewGroup10.Header = "Pesquisa";
+            listViewGroup10.Name = "Pesquisa";
             this.LISTA_FILMES.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2,
@@ -90,7 +95,8 @@
             listViewGroup6,
             listViewGroup7,
             listViewGroup8,
-            listViewGroup9});
+            listViewGroup9,
+            listViewGroup10});
             this.LISTA_FILMES.Location = new System.Drawing.Point(12, 108);
             this.LISTA_FILMES.Name = "LISTA_FILMES";
             this.LISTA_FILMES.Size = new System.Drawing.Size(760, 412);
@@ -221,15 +227,15 @@
             this.CANCELAR.UseVisualStyleBackColor = true;
             this.CANCELAR.Click += new System.EventHandler(this.CANCELAR_Click);
             // 
-            // PERQUISAR
+            // PERQUISA
             // 
-            this.PERQUISAR.Location = new System.Drawing.Point(12, 526);
-            this.PERQUISAR.Name = "PERQUISAR";
-            this.PERQUISAR.Size = new System.Drawing.Size(75, 23);
-            this.PERQUISAR.TabIndex = 11;
-            this.PERQUISAR.Text = "Perquisar";
-            this.PERQUISAR.UseVisualStyleBackColor = true;
-            this.PERQUISAR.Click += new System.EventHandler(this.PERQUISAR_Click);
+            this.PERQUISA.Location = new System.Drawing.Point(12, 526);
+            this.PERQUISA.Name = "PERQUISA";
+            this.PERQUISA.Size = new System.Drawing.Size(75, 23);
+            this.PERQUISA.TabIndex = 11;
+            this.PERQUISA.Text = "Perquisa";
+            this.PERQUISA.UseVisualStyleBackColor = true;
+            this.PERQUISA.Click += new System.EventHandler(this.PERQUISAR_Click);
             // 
             // ALTERAR
             // 
@@ -249,14 +255,38 @@
             this.TDATA.Size = new System.Drawing.Size(102, 20);
             this.TDATA.TabIndex = 16;
             // 
+            // PESQUISAR
+            // 
+            this.PESQUISAR.Location = new System.Drawing.Point(499, 77);
+            this.PESQUISAR.Name = "PESQUISAR";
+            this.PESQUISAR.Size = new System.Drawing.Size(108, 23);
+            this.PESQUISAR.TabIndex = 17;
+            this.PESQUISAR.Text = "Perquisar";
+            this.PESQUISAR.UseVisualStyleBackColor = true;
+            this.PESQUISAR.Visible = false;
+            this.PESQUISAR.Click += new System.EventHandler(this.PESQUISAR_Click);
+            // 
+            // FECHAR_PESQUISA
+            // 
+            this.FECHAR_PESQUISA.Location = new System.Drawing.Point(628, 77);
+            this.FECHAR_PESQUISA.Name = "FECHAR_PESQUISA";
+            this.FECHAR_PESQUISA.Size = new System.Drawing.Size(108, 23);
+            this.FECHAR_PESQUISA.TabIndex = 18;
+            this.FECHAR_PESQUISA.Text = "Sair da Perquisa";
+            this.FECHAR_PESQUISA.UseVisualStyleBackColor = true;
+            this.FECHAR_PESQUISA.Visible = false;
+            this.FECHAR_PESQUISA.Click += new System.EventHandler(this.FECHAR_PESQUISA_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.FECHAR_PESQUISA);
+            this.Controls.Add(this.PESQUISAR);
             this.Controls.Add(this.TDATA);
             this.Controls.Add(this.ALTERAR);
-            this.Controls.Add(this.PERQUISAR);
+            this.Controls.Add(this.PERQUISA);
             this.Controls.Add(this.CANCELAR);
             this.Controls.Add(this.ADICIONAR);
             this.Controls.Add(this.label4);
@@ -287,13 +317,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ADICIONAR;
         private System.Windows.Forms.Button CANCELAR;
-        private System.Windows.Forms.Button PERQUISAR;
+        private System.Windows.Forms.Button PERQUISA;
         private System.Windows.Forms.ColumnHeader COLUNA_NOME;
         private System.Windows.Forms.ColumnHeader COLUNA_GÊNERO;
         private System.Windows.Forms.ColumnHeader COLUNA_DATA;
         private System.Windows.Forms.ColumnHeader COLUNA_LOCAL;
         private System.Windows.Forms.Button ALTERAR;
         private System.Windows.Forms.DateTimePicker TDATA;
+        private System.Windows.Forms.Button PESQUISAR;
+        private System.Windows.Forms.Button FECHAR_PESQUISA;
     }
 }
 
