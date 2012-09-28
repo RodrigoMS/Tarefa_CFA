@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Comedia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Pesquisa", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup21 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup22 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup23 = new System.Windows.Forms.ListViewGroup("Comedia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup24 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup25 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("Pesquisa", System.Windows.Forms.HorizontalAlignment.Left);
             this.LISTA_FILMES = new System.Windows.Forms.ListView();
             this.COLUNA_NOME = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COLUNA_GÊNERO = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,6 +57,10 @@
             this.TDATA = new System.Windows.Forms.DateTimePicker();
             this.PESQUISAR = new System.Windows.Forms.Button();
             this.FECHAR_PESQUISA = new System.Windows.Forms.Button();
+            this.TDATA_ATE = new System.Windows.Forms.DateTimePicker();
+            this.ATE = new System.Windows.Forms.Label();
+            this.ABILITAR_DATA = new System.Windows.Forms.RadioButton();
+            this.DESABILITAR_DATA = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // LISTA_FILMES
@@ -66,38 +70,38 @@
             this.COLUNA_GÊNERO,
             this.COLUNA_DATA,
             this.COLUNA_LOCAL});
-            listViewGroup1.Header = "Ação";
-            listViewGroup1.Name = "Ação";
-            listViewGroup2.Header = "Aventura";
-            listViewGroup2.Name = "Aventura";
-            listViewGroup3.Header = "Comedia";
-            listViewGroup3.Name = "Comedia";
-            listViewGroup4.Header = "Terror";
-            listViewGroup4.Name = "Terror";
-            listViewGroup5.Header = "Suspense";
-            listViewGroup5.Name = "Suspense";
-            listViewGroup6.Header = "Documentário";
-            listViewGroup6.Name = "Documentário";
-            listViewGroup7.Header = "Infantil";
-            listViewGroup7.Name = "Infantil";
-            listViewGroup8.Header = "Romance";
-            listViewGroup8.Name = "Romance";
-            listViewGroup9.Header = "Ficção científica";
-            listViewGroup9.Name = "Ficção científica";
-            listViewGroup10.Header = "Pesquisa";
-            listViewGroup10.Name = "Pesquisa";
+            listViewGroup21.Header = "Ação";
+            listViewGroup21.Name = "Ação";
+            listViewGroup22.Header = "Aventura";
+            listViewGroup22.Name = "Aventura";
+            listViewGroup23.Header = "Comedia";
+            listViewGroup23.Name = "Comedia";
+            listViewGroup24.Header = "Terror";
+            listViewGroup24.Name = "Terror";
+            listViewGroup25.Header = "Suspense";
+            listViewGroup25.Name = "Suspense";
+            listViewGroup26.Header = "Documentário";
+            listViewGroup26.Name = "Documentário";
+            listViewGroup27.Header = "Infantil";
+            listViewGroup27.Name = "Infantil";
+            listViewGroup28.Header = "Romance";
+            listViewGroup28.Name = "Romance";
+            listViewGroup29.Header = "Ficção científica";
+            listViewGroup29.Name = "Ficção científica";
+            listViewGroup30.Header = "Pesquisa";
+            listViewGroup30.Name = "Pesquisa";
             this.LISTA_FILMES.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
-            this.LISTA_FILMES.Location = new System.Drawing.Point(12, 108);
+            listViewGroup21,
+            listViewGroup22,
+            listViewGroup23,
+            listViewGroup24,
+            listViewGroup25,
+            listViewGroup26,
+            listViewGroup27,
+            listViewGroup28,
+            listViewGroup29,
+            listViewGroup30});
+            this.LISTA_FILMES.Location = new System.Drawing.Point(14, 137);
             this.LISTA_FILMES.Name = "LISTA_FILMES";
             this.LISTA_FILMES.Size = new System.Drawing.Size(760, 412);
             this.LISTA_FILMES.TabIndex = 0;
@@ -175,9 +179,9 @@
             "No serviço",
             "Na casa da sogra",
             "Não sei aonde estou"});
-            this.TLOCAL.Location = new System.Drawing.Point(203, 76);
+            this.TLOCAL.Location = new System.Drawing.Point(53, 76);
             this.TLOCAL.Name = "TLOCAL";
-            this.TLOCAL.Size = new System.Drawing.Size(286, 20);
+            this.TLOCAL.Size = new System.Drawing.Size(436, 20);
             this.TLOCAL.TabIndex = 5;
             // 
             // label2
@@ -192,7 +196,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 79);
+            this.label3.Location = new System.Drawing.Point(12, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 7;
@@ -201,7 +205,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(162, 79);
+            this.label4.Location = new System.Drawing.Point(12, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 8;
@@ -229,13 +233,13 @@
             // 
             // PERQUISA
             // 
-            this.PERQUISA.Location = new System.Drawing.Point(12, 526);
+            this.PERQUISA.Location = new System.Drawing.Point(12, 568);
             this.PERQUISA.Name = "PERQUISA";
             this.PERQUISA.Size = new System.Drawing.Size(75, 23);
             this.PERQUISA.TabIndex = 11;
             this.PERQUISA.Text = "Perquisa";
             this.PERQUISA.UseVisualStyleBackColor = true;
-            this.PERQUISA.Click += new System.EventHandler(this.PERQUISAR_Click);
+            this.PERQUISA.Click += new System.EventHandler(this.PERQUISA_Click);
             // 
             // ALTERAR
             // 
@@ -250,7 +254,7 @@
             // TDATA
             // 
             this.TDATA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TDATA.Location = new System.Drawing.Point(51, 77);
+            this.TDATA.Location = new System.Drawing.Point(53, 102);
             this.TDATA.Name = "TDATA";
             this.TDATA.Size = new System.Drawing.Size(102, 20);
             this.TDATA.TabIndex = 16;
@@ -277,11 +281,59 @@
             this.FECHAR_PESQUISA.Visible = false;
             this.FECHAR_PESQUISA.Click += new System.EventHandler(this.FECHAR_PESQUISA_Click);
             // 
+            // TDATA_ATE
+            // 
+            this.TDATA_ATE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TDATA_ATE.Location = new System.Drawing.Point(241, 102);
+            this.TDATA_ATE.Name = "TDATA_ATE";
+            this.TDATA_ATE.Size = new System.Drawing.Size(102, 20);
+            this.TDATA_ATE.TabIndex = 19;
+            this.TDATA_ATE.Visible = false;
+            // 
+            // ATE
+            // 
+            this.ATE.AutoSize = true;
+            this.ATE.Location = new System.Drawing.Point(209, 105);
+            this.ATE.Name = "ATE";
+            this.ATE.Size = new System.Drawing.Size(26, 13);
+            this.ATE.TabIndex = 20;
+            this.ATE.Text = "Até:";
+            this.ATE.Visible = false;
+            // 
+            // ABILITAR_DATA
+            // 
+            this.ABILITAR_DATA.AutoSize = true;
+            this.ABILITAR_DATA.Checked = true;
+            this.ABILITAR_DATA.Location = new System.Drawing.Point(499, 106);
+            this.ABILITAR_DATA.Name = "ABILITAR_DATA";
+            this.ABILITAR_DATA.Size = new System.Drawing.Size(80, 17);
+            this.ABILITAR_DATA.TabIndex = 21;
+            this.ABILITAR_DATA.TabStop = true;
+            this.ABILITAR_DATA.Text = "Abilitar data";
+            this.ABILITAR_DATA.UseVisualStyleBackColor = true;
+            this.ABILITAR_DATA.Visible = false;
+            // 
+            // DESABILITAR_DATA
+            // 
+            this.DESABILITAR_DATA.AutoSize = true;
+            this.DESABILITAR_DATA.Location = new System.Drawing.Point(586, 107);
+            this.DESABILITAR_DATA.Name = "DESABILITAR_DATA";
+            this.DESABILITAR_DATA.Size = new System.Drawing.Size(98, 17);
+            this.DESABILITAR_DATA.TabIndex = 22;
+            this.DESABILITAR_DATA.TabStop = true;
+            this.DESABILITAR_DATA.Text = "Desabilitar data";
+            this.DESABILITAR_DATA.UseVisualStyleBackColor = true;
+            this.DESABILITAR_DATA.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 564);
+            this.ClientSize = new System.Drawing.Size(784, 612);
+            this.Controls.Add(this.DESABILITAR_DATA);
+            this.Controls.Add(this.ABILITAR_DATA);
+            this.Controls.Add(this.ATE);
+            this.Controls.Add(this.TDATA_ATE);
             this.Controls.Add(this.FECHAR_PESQUISA);
             this.Controls.Add(this.PESQUISAR);
             this.Controls.Add(this.TDATA);
@@ -326,6 +378,10 @@
         private System.Windows.Forms.DateTimePicker TDATA;
         private System.Windows.Forms.Button PESQUISAR;
         private System.Windows.Forms.Button FECHAR_PESQUISA;
+        private System.Windows.Forms.DateTimePicker TDATA_ATE;
+        private System.Windows.Forms.Label ATE;
+        private System.Windows.Forms.RadioButton ABILITAR_DATA;
+        private System.Windows.Forms.RadioButton DESABILITAR_DATA;
     }
 }
 
