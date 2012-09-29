@@ -28,9 +28,9 @@ namespace Tarefa_CFA
 
         private void ADICIONAR_Click(object sender, EventArgs e)
         {
-            if (TGENERO.Text == String.Empty)
+            if (TGENERO.Text == String.Empty || TNOME.Text == String.Empty)
             {
-                MessageBox.Show("O campo Genero esta em branco.\n Selecione um tipo para cadastrar.", "Campo não preenchido");
+                MessageBox.Show("É necessário que os campos nome e gênero estejam preenchidos.", "Campo não preenchido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -68,12 +68,13 @@ namespace Tarefa_CFA
                     Dicionario.Add(novoFilme.genero,ListaFilmes);
                 }
 
-                // Criar a lista para usar como fonte personalizado para o TextBox - TNOME.  
+                
+
+                //// Criar a lista para usar como fonte personalizado para o TextBox - TNOME.  
                 //var COMPLETE = new AutoCompleteStringCollection();
                 //COMPLETE.AddRange(new string[]
                 //        {
-                //            "Harry Photer",
-                //            "2012"
+          
                 //        });
 
                 //// Criar e inicializar a caixa de texto.
@@ -86,10 +87,6 @@ namespace Tarefa_CFA
                 LIMPAR();
             }
         }
-        private void CANCELAR_Click(object sender, EventArgs e)
-        {
-            LIMPAR();
-        }
 
         private Filme filmeSobAlteracao;
 
@@ -97,6 +94,7 @@ namespace Tarefa_CFA
         {
             // O item selecionado é enviodo para os Text Box
             ADICIONAR.Enabled = false;
+            EXCLUIR.Enabled = true;
             foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
             {
                 ALTERAR.Enabled = true;
@@ -109,19 +107,72 @@ namespace Tarefa_CFA
             }
         }
 
+        private void EXCLUIR_Click(object sender, EventArgs e)
+        {
+            ListaFilmes = new List<Filme>();
+            foreach (KeyValuePair<string, List<Filme>> Excluir in Dicionario)
+            {
+                if (Excluir.Key == TGENERO.Text)
+                {
+                    foreach (Filme ExcluirFilme in Excluir.Value)
+                    {
+                        if (ExcluirFilme.nome != TNOME.Text)
+                        {
+                            ListaFilmes.Add(ExcluirFilme);
+                        }
+                    }
+                }
+            }
+            Dicionario.Remove(TGENERO.Text);
+            Dicionario[TGENERO.Text] = ListaFilmes;
+            foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
+            {
+                if (item.Text == TNOME.Text)
+                {
+                    item.Remove();
+                }
+            }
+            ADICIONAR.Enabled = true;
+            ALTERAR.Enabled = false;
+            EXCLUIR.Enabled = false;
+            LIMPAR();
+        }
+
         private void ALTERAR_Click(object sender, EventArgs e)
         {
-            //Os items existentes dentro da lista do dicionario são substituidos pelos do TextBox
-            int Item;
-            foreach (KeyValuePair<string, List<Filme>> Altera in Dicionario)
+            string generoAntigo = String.Empty;
+            string novoGenero = String.Empty;
+            foreach (KeyValuePair<string, List<Filme>> Procurar in Dicionario)
             {
-                foreach (Filme AlterarFilme in Altera.Value)
+                if (Procurar.Key != TGENERO.Text)
                 {
-                    if (AlterarFilme.nome == TNOME.Text)
+                    foreach (Filme Encontrar in Procurar.Value)
                     {
-                        if (AlterarFilme.genero != TGENERO.Text)
-                            Item = Altera.Value.Count;
-                        else
+                        if (Encontrar.genero != TGENERO.Text)
+                        {
+                            generoAntigo = Encontrar.genero;
+                            novoGenero = TGENERO.Text;
+                            if (Dicionario.ContainsKey(novoGenero))
+                            {
+                                List<Filme> listaNovoGenero = Dicionario[novoGenero];
+                                ListaFilmes.Add(Encontrar);
+                                Encontrar.genero = novoGenero;
+                                Dicionario[novoGenero] = listaNovoGenero;
+                            }
+                            if (!Dicionario.ContainsKey(novoGenero))
+                            {
+                                ListaFilmes = new List<Filme>();
+                                ListaFilmes.Add(Encontrar);
+                                Dicionario.Add(novoGenero, ListaFilmes);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (Filme AlterarFilme in Procurar.Value)
+                    {
+                        if (AlterarFilme.nome == TNOME.Text)
                         {
                             AlterarFilme.nome = TNOME.Text;
                             AlterarFilme.genero = TGENERO.Text;
@@ -129,15 +180,17 @@ namespace Tarefa_CFA
                             AlterarFilme.local = TLOCAL.Text;
                         }
                     }
-                } 
+                }
             }
-
+            
             foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
             {
                 item.Text = TNOME.Text;
                 item.SubItems[1].Text = TGENERO.Text;
                 item.SubItems[2].Text = TDATA.Text;
                 item.SubItems[3].Text = TLOCAL.Text;
+
+                item.Group = LISTA_FILMES.Groups[TGENERO.Text];
             }
             ADICIONAR.Enabled = true;
             ALTERAR.Enabled = false;
@@ -158,7 +211,7 @@ namespace Tarefa_CFA
                     foreach (Filme Pesquisado in pesq.Value)
                     {
                         if ((Pesquisado.nome == TNOME.Text || TNOME.Text == "") 
-                            && (pesq.Key == TGENERO.Text || TGENERO.Text == "Todos os gêneros") 
+                            && (Pesquisado.genero == TGENERO.Text || TGENERO.Text == "Todos os gêneros") 
                             && (ABILITAR_DATA.Checked == false||(Pesquisado.data >= TDATA.Value && Pesquisado.data <= TDATA_ATE.Value)) 
                             && (Pesquisado.local == TLOCAL.Text || TLOCAL.Text == ""))
                         {
@@ -193,7 +246,7 @@ namespace Tarefa_CFA
             //Abilita e desabilita botões dentro do form
             ALTERAR.Visible = false;
             ADICIONAR.Visible = false;
-            CANCELAR.Visible = false;
+            EXCLUIR.Visible = false;
             PERQUISA.Visible = false;
             PESQUISAR.Visible = true;
             FECHAR_PESQUISA.Visible = true;
@@ -209,7 +262,7 @@ namespace Tarefa_CFA
             //Abilita e desabilita botões dentro do form
             ALTERAR.Visible = true;
             ADICIONAR.Visible = true;
-            CANCELAR.Visible = true;
+            EXCLUIR.Visible = true;
             PERQUISA.Visible = true;
             PESQUISAR.Visible = false;
             FECHAR_PESQUISA.Visible = false;

@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup21 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup22 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup23 = new System.Windows.Forms.ListViewGroup("Comedia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup24 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup25 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("Pesquisa", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Comedia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup19 = new System.Windows.Forms.ListViewGroup("Ficção científica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup20 = new System.Windows.Forms.ListViewGroup("Pesquisa", System.Windows.Forms.HorizontalAlignment.Left);
             this.LISTA_FILMES = new System.Windows.Forms.ListView();
             this.COLUNA_NOME = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.COLUNA_GÊNERO = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,7 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ADICIONAR = new System.Windows.Forms.Button();
-            this.CANCELAR = new System.Windows.Forms.Button();
+            this.EXCLUIR = new System.Windows.Forms.Button();
             this.PERQUISA = new System.Windows.Forms.Button();
             this.ALTERAR = new System.Windows.Forms.Button();
             this.TDATA = new System.Windows.Forms.DateTimePicker();
@@ -70,37 +70,37 @@
             this.COLUNA_GÊNERO,
             this.COLUNA_DATA,
             this.COLUNA_LOCAL});
-            listViewGroup21.Header = "Ação";
-            listViewGroup21.Name = "Ação";
-            listViewGroup22.Header = "Aventura";
-            listViewGroup22.Name = "Aventura";
-            listViewGroup23.Header = "Comedia";
-            listViewGroup23.Name = "Comedia";
-            listViewGroup24.Header = "Terror";
-            listViewGroup24.Name = "Terror";
-            listViewGroup25.Header = "Suspense";
-            listViewGroup25.Name = "Suspense";
-            listViewGroup26.Header = "Documentário";
-            listViewGroup26.Name = "Documentário";
-            listViewGroup27.Header = "Infantil";
-            listViewGroup27.Name = "Infantil";
-            listViewGroup28.Header = "Romance";
-            listViewGroup28.Name = "Romance";
-            listViewGroup29.Header = "Ficção científica";
-            listViewGroup29.Name = "Ficção científica";
-            listViewGroup30.Header = "Pesquisa";
-            listViewGroup30.Name = "Pesquisa";
+            listViewGroup11.Header = "Ação";
+            listViewGroup11.Name = "Ação";
+            listViewGroup12.Header = "Aventura";
+            listViewGroup12.Name = "Aventura";
+            listViewGroup13.Header = "Comedia";
+            listViewGroup13.Name = "Comedia";
+            listViewGroup14.Header = "Terror";
+            listViewGroup14.Name = "Terror";
+            listViewGroup15.Header = "Suspense";
+            listViewGroup15.Name = "Suspense";
+            listViewGroup16.Header = "Documentário";
+            listViewGroup16.Name = "Documentário";
+            listViewGroup17.Header = "Infantil";
+            listViewGroup17.Name = "Infantil";
+            listViewGroup18.Header = "Romance";
+            listViewGroup18.Name = "Romance";
+            listViewGroup19.Header = "Ficção científica";
+            listViewGroup19.Name = "Ficção científica";
+            listViewGroup20.Header = "Pesquisa";
+            listViewGroup20.Name = "Pesquisa";
             this.LISTA_FILMES.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup21,
-            listViewGroup22,
-            listViewGroup23,
-            listViewGroup24,
-            listViewGroup25,
-            listViewGroup26,
-            listViewGroup27,
-            listViewGroup28,
-            listViewGroup29,
-            listViewGroup30});
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18,
+            listViewGroup19,
+            listViewGroup20});
             this.LISTA_FILMES.Location = new System.Drawing.Point(14, 137);
             this.LISTA_FILMES.Name = "LISTA_FILMES";
             this.LISTA_FILMES.Size = new System.Drawing.Size(760, 412);
@@ -221,15 +221,14 @@
             this.ADICIONAR.UseVisualStyleBackColor = true;
             this.ADICIONAR.Click += new System.EventHandler(this.ADICIONAR_Click);
             // 
-            // CANCELAR
+            // EXCLUIR
             // 
-            this.CANCELAR.Location = new System.Drawing.Point(661, 76);
-            this.CANCELAR.Name = "CANCELAR";
-            this.CANCELAR.Size = new System.Drawing.Size(75, 23);
-            this.CANCELAR.TabIndex = 10;
-            this.CANCELAR.Text = "Cancelar";
-            this.CANCELAR.UseVisualStyleBackColor = true;
-            this.CANCELAR.Click += new System.EventHandler(this.CANCELAR_Click);
+            this.EXCLUIR.Location = new System.Drawing.Point(661, 76);
+            this.EXCLUIR.Name = "EXCLUIR";
+            this.EXCLUIR.Size = new System.Drawing.Size(75, 23);
+            this.EXCLUIR.TabIndex = 10;
+            this.EXCLUIR.Text = "Excluir";
+            this.EXCLUIR.UseVisualStyleBackColor = true;
             // 
             // PERQUISA
             // 
@@ -237,7 +236,7 @@
             this.PERQUISA.Name = "PERQUISA";
             this.PERQUISA.Size = new System.Drawing.Size(75, 23);
             this.PERQUISA.TabIndex = 11;
-            this.PERQUISA.Text = "Perquisa";
+            this.PERQUISA.Text = "Pesquisa";
             this.PERQUISA.UseVisualStyleBackColor = true;
             this.PERQUISA.Click += new System.EventHandler(this.PERQUISA_Click);
             // 
@@ -265,7 +264,7 @@
             this.PESQUISAR.Name = "PESQUISAR";
             this.PESQUISAR.Size = new System.Drawing.Size(108, 23);
             this.PESQUISAR.TabIndex = 17;
-            this.PESQUISAR.Text = "Perquisar";
+            this.PESQUISAR.Text = "Pesquisar";
             this.PESQUISAR.UseVisualStyleBackColor = true;
             this.PESQUISAR.Visible = false;
             this.PESQUISAR.Click += new System.EventHandler(this.PESQUISAR_Click);
@@ -276,7 +275,7 @@
             this.FECHAR_PESQUISA.Name = "FECHAR_PESQUISA";
             this.FECHAR_PESQUISA.Size = new System.Drawing.Size(108, 23);
             this.FECHAR_PESQUISA.TabIndex = 18;
-            this.FECHAR_PESQUISA.Text = "Sair da Perquisa";
+            this.FECHAR_PESQUISA.Text = "Sair da Pesquisa";
             this.FECHAR_PESQUISA.UseVisualStyleBackColor = true;
             this.FECHAR_PESQUISA.Visible = false;
             this.FECHAR_PESQUISA.Click += new System.EventHandler(this.FECHAR_PESQUISA_Click);
@@ -339,7 +338,7 @@
             this.Controls.Add(this.TDATA);
             this.Controls.Add(this.ALTERAR);
             this.Controls.Add(this.PERQUISA);
-            this.Controls.Add(this.CANCELAR);
+            this.Controls.Add(this.EXCLUIR);
             this.Controls.Add(this.ADICIONAR);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -368,7 +367,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ADICIONAR;
-        private System.Windows.Forms.Button CANCELAR;
+        private System.Windows.Forms.Button EXCLUIR;
         private System.Windows.Forms.Button PERQUISA;
         private System.Windows.Forms.ColumnHeader COLUNA_NOME;
         private System.Windows.Forms.ColumnHeader COLUNA_GÊNERO;
