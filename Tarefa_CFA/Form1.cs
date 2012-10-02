@@ -134,7 +134,7 @@ namespace Tarefa_CFA
                         }
                     }
                 }
-                if(GeneroTrocado == false)
+                else
                 {
                     foreach (Filme AlterarFilme in Procurar.Value)
                     {
