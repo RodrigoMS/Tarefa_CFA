@@ -84,6 +84,7 @@ namespace Tarefa_CFA
                 //TNOME.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
                 // Método Limpar
+                LMENSAGEM.Visible = true;
                 LIMPAR();
             }
         }
@@ -97,6 +98,8 @@ namespace Tarefa_CFA
             EXCLUIR.Enabled = true;
             foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
             {
+                LFRASE.Text = "Insira ou atualize dados e clique em Alterar. Para excluir basta clicar em Excluir.";
+                LMENSAGEM.Visible = false;
                 ALTERAR.Enabled = true;
                 filmeSobAlteracao = new Filme();
                 filmeSobAlteracao.Selecionado = item.Index;
@@ -105,6 +108,95 @@ namespace Tarefa_CFA
                 TDATA.Text = item.SubItems[2].Text;
                 TLOCAL.Text = item.SubItems[3].Text;
             }
+        }
+
+        private void ALTERAR_Click(object sender, EventArgs e)
+        {
+            string generoAntigo = String.Empty;
+            string novoGenero = String.Empty;
+            Filme TrocaFilmeGenero = new Filme();
+            bool GeneroTrocado = false;
+            foreach (KeyValuePair<string, List<Filme>> Procurar in Dicionario)
+            {
+                if (Procurar.Key != TGENERO.Text)
+                {
+                    GeneroTrocado = true;
+                    foreach (Filme Encontrar in Procurar.Value)
+                    {
+                        if (Encontrar.nome == TNOME.Text)
+                        {
+                            generoAntigo = Encontrar.genero;
+                            TrocaFilmeGenero.nome = Encontrar.nome;
+                            TrocaFilmeGenero.genero = TGENERO.Text;
+                            TrocaFilmeGenero.data = Encontrar.data;
+                            TrocaFilmeGenero.local = Encontrar.local;
+                            Encontrar.genero = TGENERO.Text;
+                        }
+                    }
+                }
+                if(GeneroTrocado == false)
+                {
+                    foreach (Filme AlterarFilme in Procurar.Value)
+                    {
+                        if (AlterarFilme.nome == TNOME.Text)
+                        {
+                            AlterarFilme.nome = TNOME.Text;
+                            AlterarFilme.genero = TGENERO.Text;
+                            AlterarFilme.data = TDATA.Value;
+                            AlterarFilme.local = TLOCAL.Text;
+                        }
+                    }
+                }
+            }
+
+            if (GeneroTrocado == true)
+            {
+                if (Dicionario.ContainsKey(TGENERO.Text))
+                {
+                    ListaFilmes.Add(TrocaFilmeGenero);
+                    Dicionario[TGENERO.Text] = ListaFilmes;
+                }
+                else
+                {
+                    ListaFilmes = new List<Filme>();
+                    ListaFilmes.Add(TrocaFilmeGenero);
+                    Dicionario.Add(TGENERO.Text,ListaFilmes);
+                }
+
+                //exclusão do Item selecionado
+                ListaFilmes = new List<Filme>();
+                foreach (KeyValuePair<string, List<Filme>> Excluir in Dicionario)
+                {
+                    if (Excluir.Key == generoAntigo)
+                    {
+                        foreach (Filme ExcluirFilme in Excluir.Value)
+                        {
+                            if (ExcluirFilme.genero != TrocaFilmeGenero.genero)
+                            {
+                                ListaFilmes.Add(ExcluirFilme);
+                            }
+                        }
+                    }
+                }
+                Dicionario.Remove(generoAntigo);
+                Dicionario.Add(generoAntigo,ListaFilmes);
+            }
+
+            foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
+            {
+                item.Text = TNOME.Text;
+                item.SubItems[1].Text = TGENERO.Text;
+                item.SubItems[2].Text = TDATA.Text;
+                item.SubItems[3].Text = TLOCAL.Text;
+
+                item.Group = LISTA_FILMES.Groups[TGENERO.Text];
+            }
+            ADICIONAR.Enabled = true;
+            ALTERAR.Enabled = false;
+            LMENSAGEM.Visible = true;
+            EXCLUIR.Enabled = false;
+            LFRASE.Text = "Para cadastrar insira os dados e clique em Adicionar";
+            LIMPAR();
         }
 
         private void EXCLUIR_Click(object sender, EventArgs e)
@@ -124,7 +216,7 @@ namespace Tarefa_CFA
                 }
             }
             Dicionario.Remove(TGENERO.Text);
-            Dicionario[TGENERO.Text] = ListaFilmes;
+            Dicionario.Add(TGENERO.Text,ListaFilmes);
             foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
             {
                 if (item.Text == TNOME.Text)
@@ -135,65 +227,8 @@ namespace Tarefa_CFA
             ADICIONAR.Enabled = true;
             ALTERAR.Enabled = false;
             EXCLUIR.Enabled = false;
-            LIMPAR();
-        }
-
-        private void ALTERAR_Click(object sender, EventArgs e)
-        {
-            string generoAntigo = String.Empty;
-            string novoGenero = String.Empty;
-            foreach (KeyValuePair<string, List<Filme>> Procurar in Dicionario)
-            {
-                if (Procurar.Key != TGENERO.Text)
-                {
-                    foreach (Filme Encontrar in Procurar.Value)
-                    {
-                        if (Encontrar.genero != TGENERO.Text)
-                        {
-                            generoAntigo = Encontrar.genero;
-                            novoGenero = TGENERO.Text;
-                            if (Dicionario.ContainsKey(novoGenero))
-                            {
-                                List<Filme> listaNovoGenero = Dicionario[novoGenero];
-                                ListaFilmes.Add(Encontrar);
-                                Encontrar.genero = novoGenero;
-                                Dicionario[novoGenero] = listaNovoGenero;
-                            }
-                            if (!Dicionario.ContainsKey(novoGenero))
-                            {
-                                ListaFilmes = new List<Filme>();
-                                ListaFilmes.Add(Encontrar);
-                                Dicionario.Add(novoGenero, ListaFilmes);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (Filme AlterarFilme in Procurar.Value)
-                    {
-                        if (AlterarFilme.nome == TNOME.Text)
-                        {
-                            AlterarFilme.nome = TNOME.Text;
-                            AlterarFilme.genero = TGENERO.Text;
-                            AlterarFilme.data = TDATA.Value;
-                            AlterarFilme.local = TLOCAL.Text;
-                        }
-                    }
-                }
-            }
-            
-            foreach (ListViewItem item in LISTA_FILMES.SelectedItems)
-            {
-                item.Text = TNOME.Text;
-                item.SubItems[1].Text = TGENERO.Text;
-                item.SubItems[2].Text = TDATA.Text;
-                item.SubItems[3].Text = TLOCAL.Text;
-
-                item.Group = LISTA_FILMES.Groups[TGENERO.Text];
-            }
-            ADICIONAR.Enabled = true;
-            ALTERAR.Enabled = false;
+            LMENSAGEM.Visible = true;
+            LFRASE.Text = "Para cadastrar insira os dados e clique em Adicionar";
             LIMPAR();
         }
 
@@ -210,9 +245,9 @@ namespace Tarefa_CFA
                 {
                     foreach (Filme Pesquisado in pesq.Value)
                     {
-                        if ((Pesquisado.nome == TNOME.Text || TNOME.Text == "") 
-                            && (Pesquisado.genero == TGENERO.Text || TGENERO.Text == "Todos os gêneros") 
-                            && (ABILITAR_DATA.Checked == false||(Pesquisado.data >= TDATA.Value && Pesquisado.data <= TDATA_ATE.Value)) 
+                        if ((Pesquisado.nome == TNOME.Text || TNOME.Text == "")
+                            && (Pesquisado.genero == TGENERO.Text || TGENERO.Text == "Todos os gêneros")
+                            && (ABILITAR_DATA.Checked == false || (Pesquisado.data >= TDATA.Value && Pesquisado.data <= TDATA_ATE.Value))
                             && (Pesquisado.local == TLOCAL.Text || TLOCAL.Text == ""))
                         {
                             NaoEncontrado = false;
@@ -244,6 +279,7 @@ namespace Tarefa_CFA
         private void PERQUISA_Click(object sender, EventArgs e)
         {
             //Abilita e desabilita botões dentro do form
+            LFRASE.Text = "Defina os dados para a pesquisa e clique em Perquisar";
             ALTERAR.Visible = false;
             ADICIONAR.Visible = false;
             EXCLUIR.Visible = false;
@@ -255,11 +291,13 @@ namespace Tarefa_CFA
             ABILITAR_DATA.Visible = true;
             DESABILITAR_DATA.Visible = true;
             TGENERO.Items.Add("Todos os gêneros");
+            LMENSAGEM.Visible = false;
         }
 
         private void FECHAR_PESQUISA_Click(object sender, EventArgs e)
         {
             //Abilita e desabilita botões dentro do form
+            LFRASE.Text = "Para cadastrar insira os dados e clique em Adicionar";
             ALTERAR.Visible = true;
             ADICIONAR.Visible = true;
             EXCLUIR.Visible = true;
@@ -271,6 +309,7 @@ namespace Tarefa_CFA
             ABILITAR_DATA.Visible = false;
             DESABILITAR_DATA.Visible = false;
             TGENERO.Items.Remove("Todos os gêneros");
+            LMENSAGEM.Visible = true;
         }
 
         public void LIMPAR()
